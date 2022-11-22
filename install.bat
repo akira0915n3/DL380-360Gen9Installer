@@ -45,7 +45,7 @@ PowerShell -command "Install-WindowsFeature -Name SNMP-WMI-Provider -IncludeMana
 echo "役割と機能のインストールが完了しました。"
 
 :rdp-arrow
-rdp.ps1
+PowerShell -File .\rdp.ps1
 
 
 set errorlevel = 0
