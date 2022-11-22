@@ -1,24 +1,25 @@
 @echo off
 chcp 65001
 
-echo "DL380/360 Gen9 DriverInstallerTool AkiraEkawa 2022/10/04 Ver1.0"
-
+echo -------------------------------------------------------------------
+echo --DL380/360 Gen9 DriverInstallerTool AkiraEkawa 2022/11/22 Ver2.0--
+echo -------------------------------------------------------------------
 
 rem 変数定義-------------------------------------------
 set copypass=C:\Work
 set cp041529=C:\Work\cp041529
 set cp048743=C:\Work\cp048743
-set /p yn_check="ファイルのコピーを開始しますか？(y/n)"
+set /p yn_check=ファイルのコピーを開始しますか？(y/n)
 
 set 
 
 rem y/n実装-------------------------------------------
 if %yn_check:Y=Y%==Y (
     rem yの場合の処理---------------------------------
-    echo "yが選択されました。開始します。"
+    echo yが選択されました。開始します。
     
     IF EXIST %copypass% (
-        echo "フォルダが存在します。"
+        echo フォルダが存在します。
         goto exit
     )ELSE (
         rem ファイルコピー---------------------------
@@ -35,17 +36,16 @@ if %yn_check:Y=Y%==Y (
 
         echo.
         echo.
-        echo "コピーが完了しました。"
-        echo "パス %copypass%" 
-        START EXPLORER %copypass%
-        %copypass%/install.txt
+        echo コピーが完了しました。
+        echo パス %copypass%
+        echo install.batを開始してください。
         goto exit
     )
    
 )ELSE (
 rem nまたはそれ以外の処理-----------------------------
     :exit
-    echo "キーを押して終了してください。"
+    echo キーを押して終了してください。
     pause
 )
 
