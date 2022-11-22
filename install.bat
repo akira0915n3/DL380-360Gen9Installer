@@ -32,23 +32,27 @@ set check="C:\cpqsystem\cpxml"
 set checkHPSU="C:\Program Files (x86)\Hewlett-Packard\HP Support Solutions\HPSupportSolutionsFrameworkService.exe"
 
 rem -インターネットに出れるか確認
-ping google.com > nul && goto role-ins
+ping google.com > nul && goto ps-ins
 
 echo ネットワークケーブルを接続してください。
 pause
 
-:role-ins
+:ps-ins
 rem -役割のインストール
-echo "SNMPServiceをインストールします。"
+echo SNMPServiceをインストールします。
 PowerShell -command "Install-WindowsFeature -Name SNMP-Service -IncludeManagementTools"
 PowerShell -command "Install-WindowsFeature -Name SNMP-WMI-Provider -IncludeManagementTools"
-echo "役割と機能のインストールが完了しました。"
+echo Hyper-V Serviceをインストールします。
+PowerShell -command "Install-WindowsFeature -Name Hyper-V -IncludeManagementTools"
+echo 役割と機能のインストールが完了しました。
+goto rdp-arrow
 
 :rdp-arrow
+echo Remote Desktop Serviceを有効化します。
 PowerShell -File .\rdp.ps1
-
-
 set errorlevel = 0
+goto app-n1
+
 
 :app-n1
 echo %n1%をインストールします。
