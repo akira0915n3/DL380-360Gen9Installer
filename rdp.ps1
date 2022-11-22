@@ -1,4 +1,4 @@
-PowerShell -command Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server" -Name "fDenyTSConnections" -Type Dword -Value "0"
-PowerShell -command Set-NetFirewallRule -DisplayName "ãƒªãƒ¢ãƒ¼ãƒˆ ãƒ‡ã‚¹ã‚¯ãƒˆãƒƒãƒ— - ã‚·ãƒ£ãƒ‰ã‚¦ (TCP å—ä¿¡)" -Enabled True
-PowerShell -command Set-NetFirewallRule -DisplayName "ãƒªãƒ¢ãƒ¼ãƒˆ ãƒ‡ã‚¹ã‚¯ãƒˆãƒƒãƒ— - ãƒ¦ãƒ¼ã‚¶ãƒ¼ ãƒ¢ãƒ¼ãƒ‰ (TCP å—ä¿¡)" -Enabled True
-PowerShell -command Set-NetFirewallRule -DisplayName "ãƒªãƒ¢ãƒ¼ãƒˆ ãƒ‡ã‚¹ã‚¯ãƒˆãƒƒãƒ— - ãƒ¦ãƒ¼ã‚¶ãƒ¼ ãƒ¢ãƒ¼ãƒ‰ (UDP å—ä¿¡)" -Enabled True
+Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server" -Name "fDenyTSConnections" -Type Dword -Value "0"
+Set-NetFirewallRule -DisplayName "ƒŠƒ‚[ƒg ƒfƒXƒNƒgƒbƒv - ƒVƒƒƒhƒE (TCP óM)" -Enabled True
+Set-NetFirewallRule -DisplayName "ƒŠƒ‚[ƒg ƒfƒXƒNƒgƒbƒv - ƒ†[ƒU[ ƒ‚[ƒh (TCP óM)" -Enabled True
+Set-NetFirewallRule -DisplayName "ƒŠƒ‚[ƒg ƒfƒXƒNƒgƒbƒv - ƒ†[ƒU[ ƒ‚[ƒh (UDP óM)" -Enabled True
