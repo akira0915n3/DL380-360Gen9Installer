@@ -38,8 +38,7 @@ if %yn_check:Y=Y%==Y (
         echo.
         echo コピーが完了しました。
         echo パス %copypass%
-        echo install.batを開始してください。
-        goto exit
+        goto :install
     )
    
 )ELSE (
@@ -49,4 +48,7 @@ rem nまたはそれ以外の処理-----------------------------
     pause
 )
 
-:m
+
+:install
+echo インストールを開始します。
+call ./install.bat
