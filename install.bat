@@ -1,12 +1,12 @@
 @@echo off
 
-REM -ŠÇ—Ò‚É¸Ši
+REM -ç®¡ç†è€…ã«æ˜‡æ ¼
 openfiles > nul 2>&1
 if %errorlevel% == 1 (
     Powershell Start-process -FilePath "%0" -Verb RunAs
 )
 
-rem -•Ï”’è‹`
+rem -å¤‰æ•°å®šç¾©
 set copypass=C:\Work
 
 set n1=cp039985
@@ -31,31 +31,22 @@ set ins=.exe
 set check="C:\cpqsystem\cpxml"
 set checkHPSU="C:\Program Files (x86)\Hewlett-Packard\HP Support Solutions\HPSupportSolutionsFrameworkService.exe"
 
-rem -ƒCƒ“ƒ^[ƒlƒbƒg‚Éo‚ê‚é‚©Šm”F
+rem -ã‚¤ãƒ³ã‚¿ãƒ¼ãƒãƒƒãƒˆã«å‡ºã‚Œã‚‹ã‹ç¢ºèª
 ping google.com > nul && goto ps-ins
-
-echo ƒlƒbƒgƒ[ƒNƒP[ƒuƒ‹‚ğÚ‘±‚µ‚Ä‚­‚¾‚³‚¢B
+echo ãƒãƒƒãƒˆãƒ¯ãƒ¼ã‚¯ã‚±ãƒ¼ãƒ–ãƒ«ã‚’æ¥ç¶šã—ã¦ãã ã•ã„ã€‚
 pause
 
-:ps-ins
-rem -–ğŠ„‚ÌƒCƒ“ƒXƒg[ƒ‹
-echo SNMPService‚ğƒCƒ“ƒXƒg[ƒ‹‚µ‚Ü‚·B
-PowerShell -command "Install-WindowsFeature -Name SNMP-Service -IncludeManagementTools"
-PowerShell -command "Install-WindowsFeature -Name SNMP-WMI-Provider -IncludeManagementTools"
-echo Hyper-V Service‚ğƒCƒ“ƒXƒg[ƒ‹‚µ‚Ü‚·B
-PowerShell -command "Install-WindowsFeature -Name Hyper-V -IncludeManagementTools"
-echo –ğŠ„‚Æ‹@”\‚ÌƒCƒ“ƒXƒg[ƒ‹‚ªŠ®—¹‚µ‚Ü‚µ‚½B
-goto rdp-arrow
 
-:rdp-arrow
-echo Remote Desktop Service‚ğ—LŒø‰»‚µ‚Ü‚·B
+:ps-ins
+rem  -PowerShellã‚³ãƒãƒ³ãƒ‰ã®å®Ÿè¡Œ
+echo å½¹å‰²ã¨æ©Ÿèƒ½ã®ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã¨ãƒªãƒ¢ãƒ¼ãƒˆãƒ‡ã‚¹ã‚¯ãƒˆãƒƒãƒ—ã‚’æœ‰åŠ¹åŒ–ã—ã¾ã™ã€‚
 PowerShell -File .\rdp.ps1
 set errorlevel = 0
 goto app-n1
 
 
 :app-n1
-echo %n1%‚ğƒCƒ“ƒXƒg[ƒ‹‚µ‚Ü‚·B
+echo %n1%ã‚’ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã—ã¾ã™ã€‚
 call %copypass%\%n1%%silent%
 echo %errorlevel%
 if %errorlevel% neq 3 (
@@ -67,7 +58,7 @@ if %errorlevel% neq 3 (
 
 
 :app-n2
-echo %n2%‚ğƒCƒ“ƒXƒg[ƒ‹‚µ‚Ü‚·B
+echo %n2%ã‚’ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã—ã¾ã™ã€‚
 call %copypass%\%n2%%silent%
 if %errorlevel% neq 3 (
     goto app-n3
@@ -76,7 +67,7 @@ if %errorlevel% neq 3 (
 )
 
 :app-n3
-echo %n3%‚ğƒCƒ“ƒXƒg[ƒ‹‚µ‚Ü‚·B
+echo %n3%ã‚’ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã—ã¾ã™ã€‚
 call %copypass%\%n3%%silent%
 if %errorlevel% neq 3 (
     goto app-n4
@@ -85,7 +76,7 @@ if %errorlevel% neq 3 (
 )
 
 :app-n4
-echo %n4%‚ğƒCƒ“ƒXƒg[ƒ‹‚µ‚Ü‚·B
+echo %n4%ã‚’ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã—ã¾ã™ã€‚
 call %copypass%\%n4%%silent%
 if %errorlevel% neq 3 (
     goto app-n5
@@ -94,7 +85,7 @@ if %errorlevel% neq 3 (
 )
 
 :app-n5
-echo %n5%‚ğƒCƒ“ƒXƒg[ƒ‹‚µ‚Ü‚·B
+echo %n5%ã‚’ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã—ã¾ã™ã€‚
 call %copypass%\%n5%%silent%
 echo %errorlevel%
 if %errorlevel% neq 3 (
@@ -104,7 +95,7 @@ if %errorlevel% neq 3 (
 )
 
 :app-n6
-echo %n6%‚ğƒCƒ“ƒXƒg[ƒ‹‚µ‚Ü‚·B
+echo %n6%ã‚’ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã—ã¾ã™ã€‚
 call %copypass%\%n6%%silent%
 if %errorlevel% neq 3 (
     goto app-n7
@@ -113,7 +104,7 @@ if %errorlevel% neq 3 (
 )
 
 :app-n7
-echo %n7%‚ğƒCƒ“ƒXƒg[ƒ‹‚µ‚Ü‚·B
+echo %n7%ã‚’ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã—ã¾ã™ã€‚
 call %copypass%\%n7%%silent%
 if %errorlevel% neq 3 (
     goto app-n8
@@ -122,7 +113,7 @@ if %errorlevel% neq 3 (
 )
 
 :app-n8
-echo %n8%‚ğƒCƒ“ƒXƒg[ƒ‹‚µ‚Ü‚·B
+echo %n8%ã‚’ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã—ã¾ã™ã€‚
 call %copypass%\%n8%%silent%
 if %errorlevel% neq 3 (
     goto app-n9
@@ -131,7 +122,7 @@ if %errorlevel% neq 3 (
 )
 
 :app-n9
-echo %n9%‚ğƒCƒ“ƒXƒg[ƒ‹‚µ‚Ü‚·B
+echo %n9%ã‚’ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã—ã¾ã™ã€‚
 call %copypass%\%n9%%silent%
 if %errorlevel% neq 3 (
     goto app-n10
@@ -140,7 +131,7 @@ if %errorlevel% neq 3 (
 )
 
 :app-n10
-echo %n10p%‚ğƒCƒ“ƒXƒg[ƒ‹‚µ‚Ü‚·B
+echo %n10%ã‚’ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã—ã¾ã™ã€‚
 call %n10%cpqsetup%silent%
 if %errorlevel% neq 3 (
     goto app-n11
@@ -149,7 +140,7 @@ if %errorlevel% neq 3 (
 )
 
 :app-n11
-echo %n11p%‚ğƒCƒ“ƒXƒg[ƒ‹‚µ‚Ü‚·B
+echo %n11%ã‚’ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã—ã¾ã™ã€‚
 call %n11%cpqsetup%silent%
 if %errorlevel% neq 3 (
     goto app-n12
@@ -158,7 +149,7 @@ if %errorlevel% neq 3 (
 )
 
 :app-n12
-echo %n12%‚ğƒCƒ“ƒXƒg[ƒ‹‚µ‚Ü‚·B
+echo %n12%ã‚’ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã—ã¾ã™ã€‚
 call %copypass%\%n12%%silent%
 if %errorlevel% neq 3 (
     goto app-n13
@@ -167,7 +158,7 @@ if %errorlevel% neq 3 (
 )
 
 :app-n13
-echo %n13%‚ğƒCƒ“ƒXƒg[ƒ‹‚µ‚Ü‚·B
+echo %n13%ã‚’ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã—ã¾ã™ã€‚
 call %copypass%\%n13%%silent%
 if %errorlevel% neq 3 (
     timeout 20 /nobreak
@@ -176,29 +167,29 @@ if %errorlevel% neq 3 (
     goto error
 )
 
-rem -2•ª‘Ò‹@
+rem -2åˆ†å¾…æ©Ÿ
 :app-ins-to
-echo ƒCƒ“ƒXƒg[ƒ‹Š®—¹’†‚Å‚·...
+echo ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«å®Œäº†ä¸­ã§ã™...
 timeout 120 /nobreak
 goto diskcounter
 
 
 :diskcounter
-rem -ƒfƒBƒXƒNƒJƒEƒ“ƒ^[‚ÌƒXƒ^[ƒg
+rem -ãƒ‡ã‚£ã‚¹ã‚¯ã‚«ã‚¦ãƒ³ã‚¿ãƒ¼ã®ã‚¹ã‚¿ãƒ¼ãƒˆ
 call diskperf -y
 pause
 goto reboot
 
 
 :reboot
-rem -Ä‹N“®
-echo 2•ªŒã‚ÉÄ‹N“®‚µ‚Ü‚·B
+rem -å†èµ·å‹•
+echo 2åˆ†å¾Œã«å†èµ·å‹•ã—ã¾ã™ã€‚
 shutdown.exe /r /t 120
 pause
 exit
 
 :error
-echo ƒGƒ‰[‚ª”­¶‚µ‚Ü‚µ‚½B
-echo Å‰‚©‚ç‚â‚è’¼‚µ‚Ä‚­‚¾‚³‚¢B
+echo ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ã¾ã—ãŸã€‚
+echo æœ€åˆã‹ã‚‰ã‚„ã‚Šç›´ã—ã¦ãã ã•ã„ã€‚
 pause
 exit
